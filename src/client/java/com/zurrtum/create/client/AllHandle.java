@@ -47,11 +47,10 @@ import com.zurrtum.create.client.content.trains.TrainHUD;
 import com.zurrtum.create.client.content.trains.station.AssemblyScreen;
 import com.zurrtum.create.client.content.trains.station.StationScreen;
 import com.zurrtum.create.client.content.trains.track.TrackBlockOutline;
-import com.zurrtum.create.client.flywheel.api.backend.Backend;
-import com.zurrtum.create.client.flywheel.api.backend.BackendManager;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationManager;
-import com.zurrtum.create.client.flywheel.impl.Flywheel;
-import com.zurrtum.create.client.flywheel.lib.visualization.VisualizationHelper;
+import dev.engine_room.flywheel.api.backend.Backend;
+import dev.engine_room.flywheel.api.backend.BackendManager;
+import dev.engine_room.flywheel.api.visualization.VisualizationManager;
+import dev.engine_room.flywheel.lib.visualization.VisualizationHelper;
 import com.zurrtum.create.client.foundation.blockEntity.behaviour.filtering.FilteringBehaviour;
 import com.zurrtum.create.client.foundation.render.PlayerSkyhookRenderer;
 import com.zurrtum.create.client.foundation.utility.CreateLang;
@@ -853,7 +852,7 @@ public class AllHandle extends AllClientHandle {
 
     @Override
     public void buildDebugInfo() {
-        DebugInfoSection.builder("Graphics").put("Flywheel Version", DebugInformation.getVersionOfMod(Flywheel.MOD_ID))
+        DebugInfoSection.builder("Graphics").put("Flywheel Version", DebugInformation.getVersionOfMod("flywheel"))
             .put("Flywheel Backend", () -> Backend.REGISTRY.getIdOrThrow(BackendManager.currentBackend()).toString())
             .put("OpenGL Renderer", GlStateManager._getString(GL11.GL_RENDERER))
             .put("OpenGL Version", GlStateManager._getString(GL11.GL_VERSION)).put(

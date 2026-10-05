@@ -1,10 +1,10 @@
 package com.zurrtum.create.client.flywheel.lib.model.baked;
 
 import com.mojang.blaze3d.vertex.MeshData;
-import com.zurrtum.create.client.flywheel.lib.memory.MemoryBlock;
-import com.zurrtum.create.client.flywheel.lib.model.SimpleQuadMesh;
-import com.zurrtum.create.client.flywheel.lib.vertex.FullVertexView;
-import com.zurrtum.create.client.flywheel.lib.vertex.VertexView;
+import dev.engine_room.flywheel.lib.memory.MemoryBlock;
+import dev.engine_room.flywheel.lib.model.SimpleQuadMesh;
+import dev.engine_room.flywheel.lib.vertex.FullVertexView;
+import dev.engine_room.flywheel.lib.vertex.VertexView;
 import org.jspecify.annotations.Nullable;
 import org.lwjgl.system.MemoryUtil;
 

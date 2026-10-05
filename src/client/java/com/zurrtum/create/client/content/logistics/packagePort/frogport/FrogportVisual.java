@@ -1,14 +1,14 @@
 package com.zurrtum.create.client.content.logistics.packagePort.frogport;
 
 import com.zurrtum.create.client.AllPartialModels;
-import com.zurrtum.create.client.flywheel.api.instance.Instance;
-import com.zurrtum.create.client.flywheel.api.visual.ShaderLightVisual;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationContext;
+import dev.engine_room.flywheel.api.instance.Instance;
+import dev.engine_room.flywheel.api.visual.ShaderLightVisual;
+import dev.engine_room.flywheel.api.visualization.VisualizationContext;
 import com.zurrtum.create.client.flywheel.lib.instance.InstanceTypes;
 import com.zurrtum.create.client.flywheel.lib.instance.TransformedInstance;
 import com.zurrtum.create.client.flywheel.lib.model.Models;
 import com.zurrtum.create.client.flywheel.lib.visual.AbstractBlockEntityVisual;
-import com.zurrtum.create.client.flywheel.lib.visual.SimpleDynamicVisual;
+import dev.engine_room.flywheel.lib.visual.SimpleDynamicVisual;
 import com.zurrtum.create.content.logistics.packagePort.frogport.FrogportBlockEntity;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
@@ -137,7 +137,7 @@ public class FrogportVisual extends AbstractBlockEntityVisual<FrogportBlockEntit
                 .setChanged();
 
             // Save the base pose to avoid recalculating it twice every frame
-            basePose.set(body.pose).translate(8 / 16.0f, 10 / 16.0f, 11 / 16.0f);
+            basePose.set(body.pose()).translate(8 / 16.0f, 10 / 16.0f, 11 / 16.0f);
 
             // I'm not entirely sure that yaw ever changes
             lastYaw = yaw;
@@ -206,6 +206,7 @@ public class FrogportVisual extends AbstractBlockEntityVisual<FrogportBlockEntit
         instancerProvider().instancer(InstanceTypes.TRANSFORMED, Models.partial(AllPartialModels.PACKAGES.get(key)))
             .stealInstance(box);
         box.handle().setVisible(true);
+        box.flush();
 
         box.setIdentityTransform().translate(getVisualPosition()).translate(0, 3 / 16.0f, 0)
             .translate(diff.normalize().scale(itemDistance).subtract(0, animating && depositing ? 0.75 : 0, 0)).center()
@@ -222,7 +223,7 @@ public class FrogportVisual extends AbstractBlockEntityVisual<FrogportBlockEntit
         ).stealInstance(rig);
         rig.handle().setVisible(true);
 
-        rig.pose.set(box.pose);
+        rig.flush().setTransform(box.pose());
         rig.setChanged();
     }
 

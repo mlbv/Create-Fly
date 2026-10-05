@@ -6,14 +6,14 @@ import com.zurrtum.create.catnip.data.Iterate;
 import com.zurrtum.create.client.AllFluidConfigs;
 import com.zurrtum.create.client.content.fluids.FluidInstance;
 import com.zurrtum.create.client.content.fluids.FluidMesh;
-import com.zurrtum.create.client.flywheel.api.instance.Instance;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationContext;
+import dev.engine_room.flywheel.api.instance.Instance;
+import dev.engine_room.flywheel.api.visualization.VisualizationContext;
 import com.zurrtum.create.client.flywheel.lib.instance.InstanceTypes;
 import com.zurrtum.create.client.flywheel.lib.instance.TransformedInstance;
-import com.zurrtum.create.client.flywheel.lib.transform.Translate;
+import dev.engine_room.flywheel.lib.transform.Translate;
 import com.zurrtum.create.client.flywheel.lib.visual.AbstractBlockEntityVisual;
-import com.zurrtum.create.client.flywheel.lib.visual.SimpleDynamicVisual;
-import com.zurrtum.create.client.flywheel.lib.visual.util.SmartRecycler;
+import dev.engine_room.flywheel.lib.visual.SimpleDynamicVisual;
+import dev.engine_room.flywheel.lib.visual.util.SmartRecycler;
 import com.zurrtum.create.client.foundation.render.AllInstanceTypes;
 import com.zurrtum.create.content.fluids.FluidTransportBehaviour;
 import com.zurrtum.create.content.fluids.PipeConnection.Flow;
@@ -135,9 +135,9 @@ public class GlassPipeVisual extends AbstractBlockEntityVisual<StraightPipeBlock
             fluidInstance.light(light).colorArgb(tint);
 
 
-            fluidInstance.vScale = (flowTexture.getV1() - flowTexture.getV0()) * 0.5f;
-            fluidInstance.v0 = flowTexture.getV0() + yStart * fluidInstance.vScale;
-            fluidInstance.progress = progressOffset;
+            float vScale = (flowTexture.getV1() - flowTexture.getV0()) * 0.5f;
+            fluidInstance.vScale(vScale).v0(flowTexture.getV0() + yStart * vScale)
+                .progress(progressOffset);
 
             fluidInstance.setChanged();
 

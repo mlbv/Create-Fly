@@ -10,7 +10,7 @@ import com.zurrtum.create.client.catnip.render.SuperByteBuffer;
 import com.zurrtum.create.client.catnip.render.SuperByteBufferCache;
 import com.zurrtum.create.client.catnip.render.SuperByteBufferRenderState;
 import com.zurrtum.create.client.content.contraptions.render.ClientContraption.RenderedBlocks;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationManager;
+import dev.engine_room.flywheel.api.visualization.VisualizationManager;
 import com.zurrtum.create.client.flywheel.lib.model.baked.ModelConsumer;
 import com.zurrtum.create.client.flywheel.lib.model.baked.ModelRenderHelper;
 import com.zurrtum.create.client.foundation.render.BlockEntityRenderHelper;

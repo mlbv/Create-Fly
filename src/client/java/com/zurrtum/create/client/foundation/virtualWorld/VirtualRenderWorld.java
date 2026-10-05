@@ -1,6 +1,6 @@
 package com.zurrtum.create.client.foundation.virtualWorld;
 
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationLevel;
+import dev.engine_room.flywheel.api.visualization.VisualizationLevel;
 import it.unimi.dsi.fastutil.objects.Object2ShortMap;
 import it.unimi.dsi.fastutil.objects.Object2ShortOpenHashMap;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;

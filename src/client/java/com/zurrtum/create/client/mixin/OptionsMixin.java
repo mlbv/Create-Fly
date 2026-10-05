@@ -2,7 +2,6 @@ package com.zurrtum.create.client.mixin;
 
 import com.google.common.collect.Lists;
 import com.zurrtum.create.client.AllKeys;
-import com.zurrtum.create.client.flywheel.backend.engine.uniform.OptionsUniforms;
 import com.zurrtum.create.client.ponder.enums.PonderKeybinds;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
@@ -33,15 +32,5 @@ public class OptionsMixin {
         keys.remove(PonderKeybinds.PONDER);
         keys.add(PonderKeybinds.PONDER);
         keyMappings = keys.toArray(KeyMapping[]::new);
-    }
-
-    @Inject(method = "load()V", at = @At("RETURN"))
-    private void flywheel$onLoad(CallbackInfo ci) {
-        OptionsUniforms.update((Options) (Object) this);
-    }
-
-    @Inject(method = "save()V", at = @At("HEAD"))
-    private void flywheel$onSave(CallbackInfo ci) {
-        OptionsUniforms.update((Options) (Object) this);
     }
 }

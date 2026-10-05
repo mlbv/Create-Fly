@@ -3,7 +3,7 @@ package com.zurrtum.create.client.content.contraptions.actors.psi;
 import com.zurrtum.create.catnip.animation.LerpedFloat;
 import com.zurrtum.create.client.catnip.animation.AnimationTickHolder;
 import com.zurrtum.create.client.content.contraptions.render.ActorVisual;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationContext;
+import dev.engine_room.flywheel.api.visualization.VisualizationContext;
 import com.zurrtum.create.client.foundation.virtualWorld.VirtualRenderWorld;
 import com.zurrtum.create.content.contraptions.actors.psi.PortableStorageInterfaceMovement;
 import com.zurrtum.create.content.contraptions.behaviour.MovementContext;

@@ -3,18 +3,18 @@ package com.zurrtum.create.client.content.decoration.slidingDoor;
 import com.zurrtum.create.catnip.data.Couple;
 import com.zurrtum.create.catnip.math.AngleHelper;
 import com.zurrtum.create.client.AllPartialModels;
-import com.zurrtum.create.client.flywheel.api.instance.Instance;
-import com.zurrtum.create.client.flywheel.api.instance.InstancerProvider;
-import com.zurrtum.create.client.flywheel.api.model.Model;
-import com.zurrtum.create.client.flywheel.api.visual.ShaderLightVisual;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationContext;
+import dev.engine_room.flywheel.api.instance.Instance;
+import dev.engine_room.flywheel.api.instance.InstancerProvider;
+import dev.engine_room.flywheel.api.model.Model;
+import dev.engine_room.flywheel.api.visual.ShaderLightVisual;
+import dev.engine_room.flywheel.api.visualization.VisualizationContext;
 import com.zurrtum.create.client.flywheel.lib.instance.InstanceTypes;
 import com.zurrtum.create.client.flywheel.lib.instance.OrientedInstance;
 import com.zurrtum.create.client.flywheel.lib.instance.TransformedInstance;
 import com.zurrtum.create.client.flywheel.lib.model.Models;
 import com.zurrtum.create.client.flywheel.lib.model.baked.PartialModel;
 import com.zurrtum.create.client.flywheel.lib.visual.AbstractBlockEntityVisual;
-import com.zurrtum.create.client.flywheel.lib.visual.SimpleDynamicVisual;
+import dev.engine_room.flywheel.lib.visual.SimpleDynamicVisual;
 import com.zurrtum.create.content.decoration.slidingDoor.SlidingDoorBlock;
 import com.zurrtum.create.content.decoration.slidingDoor.SlidingDoorBlockEntity;
 import net.minecraft.core.BlockPos;
@@ -25,6 +25,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.properties.DoorHingeSide;
+import org.joml.Quaternionf;
 import org.joml.Vector3fc;
 import org.jspecify.annotations.Nullable;
 
@@ -116,20 +117,20 @@ public abstract class SlidingDoorVisual extends AbstractBlockEntityVisual<Slidin
                 ).rotateCentered(angle, Direction.UP);
                 if (flip) {
                     left.translate(0, 0, 1).rotateYDegrees(-91 * v).translate(0, 0, -0.5f);
-                    right.setTransform(left.pose).rotateYDegrees(181 * v).translate(0, 0, -0.5f);
+                    right.setTransform(left.pose()).rotateYDegrees(181 * v).translate(0, 0, -0.5f);
                 } else {
                     left.rotateYDegrees(91 * v);
-                    right.setTransform(left.pose).translate(0, 0, 0.5f).rotateYDegrees(-181 * v);
+                    right.setTransform(left.pose()).translate(0, 0, 0.5f).rotateYDegrees(-181 * v);
                 }
             } else {
                 left.setIdentityTransform()
                     .translate(pos.getX(), pos.getY() + SlidingDoorRenderer.DOOR_OFFSET, pos.getZ())
                     .rotateCentered(angle, Direction.UP);
                 if (flip) {
-                    right.setTransform(left.pose);
+                    right.setTransform(left.pose());
                     left.translate(0, 0, 0.5f);
                 } else {
-                    right.setTransform(left.pose).translate(0, 0, 0.5f);
+                    right.setTransform(left.pose()).translate(0, 0, 0.5f);
                 }
             }
             left.setChanged();
@@ -169,11 +170,11 @@ public abstract class SlidingDoorVisual extends AbstractBlockEntityVisual<Slidin
                 facing.getCounterClockWise().getUnitVec3f() : facing.getClockWise().getUnitVec3f();
             facingVec = facing.getUnitVec3f();
             switch (facing) {
-                case NORTH -> door.rotation.rotationY(Mth.DEG_TO_RAD * 180);
-                case WEST -> door.rotation.rotationY(Mth.DEG_TO_RAD * -90);
-                case EAST -> door.rotation.rotationY(Mth.DEG_TO_RAD * -270);
-                case UP -> door.rotation.rotationX(Mth.DEG_TO_RAD * -90);
-                case DOWN -> door.rotation.rotationX(Mth.DEG_TO_RAD * 90);
+                case NORTH -> door.rotation(new Quaternionf().rotationY(Mth.DEG_TO_RAD * 180));
+                case WEST -> door.rotation(new Quaternionf().rotationY(Mth.DEG_TO_RAD * -90));
+                case EAST -> door.rotation(new Quaternionf().rotationY(Mth.DEG_TO_RAD * -270));
+                case UP -> door.rotation(new Quaternionf().rotationX(Mth.DEG_TO_RAD * -90));
+                case DOWN -> door.rotation(new Quaternionf().rotationX(Mth.DEG_TO_RAD * 90));
             }
             transformModels(partialTick);
         }

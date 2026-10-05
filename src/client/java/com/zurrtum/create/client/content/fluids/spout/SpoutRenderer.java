@@ -7,7 +7,7 @@ import com.zurrtum.create.client.catnip.render.FluidRenderHelper;
 import com.zurrtum.create.client.catnip.render.FluidRenderHelper.FluidRenderState;
 import com.zurrtum.create.client.catnip.render.SuperByteBufferRenderState;
 import com.zurrtum.create.client.content.fluids.spout.SpoutRenderer.SpoutRenderState;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationManager;
+import dev.engine_room.flywheel.api.visualization.VisualizationManager;
 import com.zurrtum.create.client.foundation.blockEntity.renderer.SmartBlockEntityRenderer;
 import com.zurrtum.create.content.fluids.spout.SpoutBlockEntity;
 import com.zurrtum.create.foundation.blockEntity.behaviour.fluid.SmartFluidTankBehaviour;

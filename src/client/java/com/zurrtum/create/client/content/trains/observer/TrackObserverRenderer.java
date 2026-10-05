@@ -6,7 +6,7 @@ import com.zurrtum.create.client.AllTrackRenders;
 import com.zurrtum.create.client.content.trains.observer.TrackObserverRenderer.TrackObserverRenderState;
 import com.zurrtum.create.client.content.trains.track.TrackBlockRenderState;
 import com.zurrtum.create.client.content.trains.track.TrackBlockRenderer;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationManager;
+import dev.engine_room.flywheel.api.visualization.VisualizationManager;
 import com.zurrtum.create.client.foundation.blockEntity.behaviour.filtering.FilteringRenderer;
 import com.zurrtum.create.client.foundation.blockEntity.behaviour.filtering.FilteringRenderer.FilterRenderState;
 import com.zurrtum.create.client.foundation.blockEntity.renderer.SmartBlockEntityRenderer;

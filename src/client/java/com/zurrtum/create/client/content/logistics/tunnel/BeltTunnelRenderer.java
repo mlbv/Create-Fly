@@ -8,7 +8,7 @@ import com.zurrtum.create.client.catnip.render.SuperByteBufferRenderState;
 import com.zurrtum.create.client.content.logistics.FlapStuffs;
 import com.zurrtum.create.client.content.logistics.FlapStuffs.FlapsRenderState;
 import com.zurrtum.create.client.content.logistics.tunnel.BeltTunnelRenderer.BeltTunnelRenderState;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationManager;
+import dev.engine_room.flywheel.api.visualization.VisualizationManager;
 import com.zurrtum.create.client.foundation.blockEntity.behaviour.filtering.FilteringRenderer;
 import com.zurrtum.create.client.foundation.blockEntity.behaviour.filtering.FilteringRenderer.FilterRenderState;
 import com.zurrtum.create.client.foundation.blockEntity.renderer.SmartBlockEntityRenderer;

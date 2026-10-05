@@ -9,7 +9,6 @@ import com.zurrtum.create.client.content.equipment.zapper.ZapperRenderHandler;
 import com.zurrtum.create.client.content.schematics.client.ClientSchematicLoader;
 import com.zurrtum.create.client.content.schematics.client.SchematicAndQuillHandler;
 import com.zurrtum.create.client.content.schematics.client.SchematicHandler;
-import com.zurrtum.create.client.flywheel.impl.Flywheel;
 import com.zurrtum.create.client.foundation.ClientResourceReloadListener;
 import com.zurrtum.create.client.foundation.blockEntity.ValueSettingsClient;
 import com.zurrtum.create.client.foundation.ponder.CreatePonderPlugin;
@@ -17,7 +16,6 @@ import com.zurrtum.create.client.foundation.utility.CameraAngleAnimationService;
 import com.zurrtum.create.client.infrastructure.config.AllConfigs;
 import com.zurrtum.create.client.ponder.Ponder;
 import com.zurrtum.create.client.ponder.foundation.PonderIndex;
-import com.zurrtum.create.client.vanillin.Vanillin;
 import com.zurrtum.create.content.trains.GlobalRailwayManager;
 import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.resources.Identifier;
@@ -38,9 +36,7 @@ public class Create implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        new Flywheel().onInitializeClient();
         new Ponder().onInitializeClient();
-        new Vanillin().onInitializeClient();
         SOUL_PULSE_EFFECT_HANDLER = new SoulPulseEffectHandler();
         VALUE_SETTINGS_HANDLER = new ValueSettingsClient();
         GLUE_HANDLER = new SuperGlueSelectionHandler();

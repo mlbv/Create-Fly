@@ -2,7 +2,7 @@ package com.zurrtum.create.client.content.trains.display;
 
 import com.zurrtum.create.client.AllPartialModels;
 import com.zurrtum.create.client.content.kinetics.base.SingleAxisRotatingVisual;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationContext;
+import dev.engine_room.flywheel.api.visualization.VisualizationContext;
 import com.zurrtum.create.client.flywheel.lib.model.Models;
 import com.zurrtum.create.content.trains.display.FlapDisplayBlockEntity;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;

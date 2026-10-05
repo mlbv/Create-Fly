@@ -3,7 +3,7 @@ package com.zurrtum.create.client.content.redstone.diodes;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.zurrtum.create.catnip.math.AngleHelper;
 import com.zurrtum.create.catnip.math.VecHelper;
-import com.zurrtum.create.client.flywheel.lib.transform.TransformStack;
+import dev.engine_room.flywheel.lib.transform.TransformStack;
 import com.zurrtum.create.client.foundation.blockEntity.behaviour.ValueBoxTransform;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;

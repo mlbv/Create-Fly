@@ -4,16 +4,16 @@ import com.mojang.math.Axis;
 import com.zurrtum.create.catnip.math.AngleHelper;
 import com.zurrtum.create.client.AllPartialModels;
 import com.zurrtum.create.client.content.kinetics.base.ShaftVisual;
-import com.zurrtum.create.client.flywheel.api.instance.Instance;
-import com.zurrtum.create.client.flywheel.api.visual.DynamicVisual;
-import com.zurrtum.create.client.flywheel.api.visual.TickableVisual;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationContext;
+import dev.engine_room.flywheel.api.instance.Instance;
+import dev.engine_room.flywheel.api.visual.DynamicVisual;
+import dev.engine_room.flywheel.api.visual.TickableVisual;
+import dev.engine_room.flywheel.api.visualization.VisualizationContext;
 import com.zurrtum.create.client.flywheel.lib.instance.InstanceTypes;
 import com.zurrtum.create.client.flywheel.lib.instance.OrientedInstance;
 import com.zurrtum.create.client.flywheel.lib.model.Models;
 import com.zurrtum.create.client.flywheel.lib.model.baked.PartialModel;
-import com.zurrtum.create.client.flywheel.lib.visual.SimpleDynamicVisual;
-import com.zurrtum.create.client.flywheel.lib.visual.SimpleTickableVisual;
+import dev.engine_room.flywheel.lib.visual.SimpleDynamicVisual;
+import dev.engine_room.flywheel.lib.visual.SimpleTickableVisual;
 import com.zurrtum.create.content.kinetics.deployer.DeployerBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -84,6 +84,7 @@ public class DeployerVisual extends ShaftVisual<DeployerBlockEntity> implements 
         if (currentHand != handPose) {
             currentHand = handPose;
             instancerProvider().instancer(InstanceTypes.ORIENTED, Models.chunkPartial(currentHand)).stealInstance(hand);
+            hand.flush();
         }
     }
 

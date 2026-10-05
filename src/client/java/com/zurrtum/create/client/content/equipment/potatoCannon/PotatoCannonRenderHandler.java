@@ -3,7 +3,7 @@ package com.zurrtum.create.client.content.equipment.potatoCannon;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.zurrtum.create.catnip.math.VecHelper;
 import com.zurrtum.create.client.content.equipment.zapper.ShootableGadgetRenderHandler;
-import com.zurrtum.create.client.flywheel.lib.transform.TransformStack;
+import dev.engine_room.flywheel.lib.transform.TransformStack;
 import com.zurrtum.create.content.equipment.potatoCannon.PotatoCannonItem;
 import com.zurrtum.create.content.equipment.potatoCannon.PotatoProjectileEntity;
 import com.zurrtum.create.infrastructure.particle.AirParticleData;

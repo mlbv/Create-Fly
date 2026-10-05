@@ -1,7 +1,7 @@
 package com.zurrtum.create.client.infrastructure.particle;
 
 import com.mojang.math.Axis;
-import com.zurrtum.create.client.flywheel.lib.util.ShadersModHelper;
+import dev.engine_room.flywheel.lib.util.ShadersModHelper;
 import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.SimpleAnimatedParticle;

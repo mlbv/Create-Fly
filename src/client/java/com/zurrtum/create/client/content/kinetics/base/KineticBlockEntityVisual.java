@@ -1,8 +1,8 @@
 package com.zurrtum.create.client.content.kinetics.base;
 
 import com.zurrtum.create.catnip.theme.Color;
-import com.zurrtum.create.client.flywheel.api.visual.ShaderLightVisual;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationContext;
+import dev.engine_room.flywheel.api.visual.ShaderLightVisual;
+import dev.engine_room.flywheel.api.visualization.VisualizationContext;
 import com.zurrtum.create.client.flywheel.lib.visual.AbstractBlockEntityVisual;
 import com.zurrtum.create.content.kinetics.base.IRotate;
 import com.zurrtum.create.content.kinetics.base.KineticBlockEntity;

@@ -10,7 +10,7 @@ import com.zurrtum.create.client.catnip.animation.AnimationTickHolder;
 import com.zurrtum.create.client.catnip.render.CachedBuffers;
 import com.zurrtum.create.client.catnip.render.SuperByteBufferRenderState;
 import com.zurrtum.create.client.content.trains.display.FlapDisplayRenderer.FlapDisplayRenderState;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationManager;
+import dev.engine_room.flywheel.api.visualization.VisualizationManager;
 import com.zurrtum.create.client.foundation.blockEntity.renderer.SmartBlockEntityRenderer;
 import com.zurrtum.create.client.foundation.utility.DyeHelper;
 import com.zurrtum.create.content.trains.display.FlapDisplayBlock;

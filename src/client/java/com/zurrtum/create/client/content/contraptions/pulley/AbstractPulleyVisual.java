@@ -5,14 +5,13 @@ import com.zurrtum.create.catnip.math.AngleHelper;
 import com.zurrtum.create.client.catnip.render.SpriteShiftEntry;
 import com.zurrtum.create.client.content.kinetics.base.ShaftVisual;
 import com.zurrtum.create.client.content.processing.burner.ScrollInstance;
-import com.zurrtum.create.client.flywheel.api.instance.Instance;
-import com.zurrtum.create.client.flywheel.api.instance.Instancer;
-import com.zurrtum.create.client.flywheel.api.visual.DynamicVisual;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationContext;
+import dev.engine_room.flywheel.api.instance.Instance;
+import dev.engine_room.flywheel.api.instance.Instancer;
+import dev.engine_room.flywheel.api.visual.DynamicVisual;
+import dev.engine_room.flywheel.api.visualization.VisualizationContext;
 import com.zurrtum.create.client.flywheel.lib.instance.TransformedInstance;
-import com.zurrtum.create.client.flywheel.lib.math.MoreMath;
-import com.zurrtum.create.client.flywheel.lib.visual.SimpleDynamicVisual;
-import com.zurrtum.create.client.flywheel.lib.visual.util.SmartRecycler;
+import dev.engine_room.flywheel.lib.visual.SimpleDynamicVisual;
+import dev.engine_room.flywheel.lib.visual.util.SmartRecycler;
 import com.zurrtum.create.content.kinetics.base.KineticBlockEntity;
 import it.unimi.dsi.fastutil.bytes.ByteArrayList;
 import it.unimi.dsi.fastutil.bytes.ByteList;
@@ -97,12 +96,13 @@ public abstract class AbstractPulleyVisual<T extends KineticBlockEntity> extends
     }
 
     private void animate() {
-        coil.offsetV = -offset;
+        coil.offsetV(-offset);
         coil.setChanged();
 
         magnet.setVisible(isRunning() || offset == 0);
 
         magnetInstancer().stealInstance(magnet);
+        magnet.flush();
 
         magnet.setIdentityTransform().translate(getVisualPosition()).translate(0, -offset, 0)
             .light(lightCache.getPackedLight(Math.max(0, Mth.floor(offset)))).setChanged();
@@ -178,7 +178,7 @@ public abstract class AbstractPulleyVisual<T extends KineticBlockEntity> extends
                 data.size(size);
                 update();
 
-                int sectionCount = MoreMath.ceilingDiv(
+                int sectionCount = Math.ceilDiv(
                     size + 15 - pos.getY() + pos.getY() / 4 * 4,
                     SectionPos.SECTION_SIZE
                 );

@@ -3,7 +3,6 @@ package com.zurrtum.create.client.mixin;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
-import com.mojang.blaze3d.systems.RenderSystem;
 import com.zurrtum.create.AllPackets;
 import com.zurrtum.create.catnip.data.WorldAttached;
 import com.zurrtum.create.client.Create;
@@ -52,12 +51,6 @@ import com.zurrtum.create.client.content.trains.track.CurvedTrackInteraction;
 import com.zurrtum.create.client.content.trains.track.TrackBlockOutline;
 import com.zurrtum.create.client.content.trains.track.TrackPlacementClient;
 import com.zurrtum.create.client.content.trains.track.TrackTargetingClient;
-import com.zurrtum.create.client.flywheel.backend.compile.FlwProgramsReloader;
-import com.zurrtum.create.client.flywheel.impl.BackendManagerImpl;
-import com.zurrtum.create.client.flywheel.impl.FlwImpl;
-import com.zurrtum.create.client.flywheel.impl.visualization.VisualizationEventHandler;
-import com.zurrtum.create.client.flywheel.lib.util.LevelAttached;
-import com.zurrtum.create.client.flywheel.lib.util.RendererReloadCache;
 import com.zurrtum.create.client.foundation.block.BigOutlines;
 import com.zurrtum.create.client.foundation.blockEntity.behaviour.edgeInteraction.EdgeInteractionRenderer;
 import com.zurrtum.create.client.foundation.blockEntity.behaviour.filtering.FilteringRenderer;
@@ -75,7 +68,6 @@ import com.zurrtum.create.content.equipment.zapper.ZapperItem;
 import com.zurrtum.create.content.kinetics.drill.CobbleGenOptimisation;
 import com.zurrtum.create.content.redstone.link.controller.LinkedControllerItem;
 import com.zurrtum.create.foundation.utility.TickBasedCache;
-import net.minecraft.client.GameLoadCookie;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
@@ -124,26 +116,12 @@ public abstract class MinecraftMixin {
         TrackBlockOutline.pickCurves(mc);
     }
 
-    @Inject(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/packs/resources/ReloadableResourceManager;createReload(Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture;Ljava/util/List;)Lnet/minecraft/server/packs/resources/ReloadInstance;"))
-    private void flywheel$onBeginInitialResourceReload(GameConfig gameConfig, CallbackInfo ci) {
-        FlwImpl.freezeRegistries();
-    }
-
     @Inject(method = "<init>", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/platform/Window;updateRawMouseInput(Z)V"))
     private void register(GameConfig gameConfig, CallbackInfo ci) {
-        if (RenderSystem.getDevice().getDeviceInfo().backendName().equals("OpenGL")) {
-            resourceManager.registerReloadListener(FlwProgramsReloader.INSTANCE);
-        }
         resourceManager.registerReloadListener(ObjLoader.INSTANCE);
         resourceManager.registerReloadListener(Create.RESOURCE_RELOAD_LISTENER);
         resourceManager.registerReloadListener(TrainHatInfoReloadListener.LISTENER);
         resourceManager.registerReloadListener(Ponder.RESOURCE_RELOAD_LISTENER);
-    }
-
-    @Inject(method = "onResourceLoadFinished(Lnet/minecraft/client/GameLoadCookie;)V", at = @At("HEAD"))
-    private void endReload(GameLoadCookie cookie, CallbackInfo ci) {
-        BackendManagerImpl.onEndClientResourceReload();
-        RendererReloadCache.onReloadLevelRenderer();
     }
 
     @Inject(method = "tick()V", at = @At("HEAD"))
@@ -226,11 +204,6 @@ public abstract class MinecraftMixin {
         TurntableHandler.gameRenderFrame((Minecraft) (Object) this);
     }
 
-    @Inject(method = "tick()V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/multiplayer/ClientLevel;tick(Ljava/util/function/BooleanSupplier;)V", shift = At.Shift.AFTER))
-    private void tick(CallbackInfo ci) {
-        VisualizationEventHandler.onClientTick((Minecraft) (Object) this, level);
-    }
-
     @Inject(method = "startUseItem()V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/player/LocalPlayer;getItemInHand(Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/item/ItemStack;"), cancellable = true)
     private void doItemUse(CallbackInfo ci, @Local InteractionHand hand) {
         Minecraft mc = (Minecraft) (Object) this;
@@ -297,7 +270,6 @@ public abstract class MinecraftMixin {
 
     @Inject(method = "disconnect(Lnet/minecraft/client/gui/screens/Screen;ZZ)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/Hud;onDisconnected()V"))
     private void onUnloadWorld(CallbackInfo ci) {
-        LevelAttached.invalidateLevel(level);
         Create.invalidateRenderers();
         Create.SOUL_PULSE_EFFECT_HANDLER.refresh();
         AnimationTickHolder.reset();

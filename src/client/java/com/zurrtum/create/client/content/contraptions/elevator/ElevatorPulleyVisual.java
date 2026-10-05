@@ -6,14 +6,14 @@ import com.zurrtum.create.client.AllSpriteShifts;
 import com.zurrtum.create.client.content.contraptions.pulley.PulleyRenderer;
 import com.zurrtum.create.client.content.kinetics.base.ShaftVisual;
 import com.zurrtum.create.client.content.processing.burner.ScrollInstance;
-import com.zurrtum.create.client.flywheel.api.visual.DynamicVisual;
-import com.zurrtum.create.client.flywheel.api.visual.ShaderLightVisual;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationContext;
+import dev.engine_room.flywheel.api.visual.DynamicVisual;
+import dev.engine_room.flywheel.api.visual.ShaderLightVisual;
+import dev.engine_room.flywheel.api.visualization.VisualizationContext;
 import com.zurrtum.create.client.flywheel.lib.instance.InstanceTypes;
 import com.zurrtum.create.client.flywheel.lib.instance.TransformedInstance;
 import com.zurrtum.create.client.flywheel.lib.model.Models;
-import com.zurrtum.create.client.flywheel.lib.visual.SimpleDynamicVisual;
-import com.zurrtum.create.client.flywheel.lib.visual.util.InstanceRecycler;
+import dev.engine_room.flywheel.lib.visual.SimpleDynamicVisual;
+import dev.engine_room.flywheel.lib.visual.util.InstanceRecycler;
 import com.zurrtum.create.client.foundation.render.AllInstanceTypes;
 import com.zurrtum.create.content.contraptions.elevator.ElevatorPulleyBlock;
 import com.zurrtum.create.content.contraptions.elevator.ElevatorPulleyBlockEntity;
@@ -77,7 +77,7 @@ public class ElevatorPulleyVisual extends ShaftVisual<ElevatorPulleyBlockEntity>
         magnet.setIdentityTransform().translate(getVisualPosition()).center().rotateYDegrees(blockStateAngle)
             .uncenter();
 
-        cachedMagnetTransform = new Matrix4f(magnet.pose);
+        cachedMagnetTransform = new Matrix4f(magnet.pose());
 
         animate(PulleyRenderer.getBlockEntityOffset(partialTick, blockEntity));
     }
@@ -149,7 +149,7 @@ public class ElevatorPulleyVisual extends ShaftVisual<ElevatorPulleyBlockEntity>
         for (int i = 0; i < offset - 0.25f; i++) {
             var segment = belt.get().position(getVisualPosition()).shift(0, -(offset - i), 0);
 
-            segment.offsetV = offset;
+            segment.offsetV(offset);
 
             segment.setChanged();
         }
@@ -161,9 +161,10 @@ public class ElevatorPulleyVisual extends ShaftVisual<ElevatorPulleyBlockEntity>
         float f = offset % 1;
         if (f < 0.25f || f > 0.75f) {
             halfBelt.setVisible(true);
+            halfBelt.flush();
             halfBelt.position(getVisualPosition()).shift(0, -(f > 0.75f ? f - 1 : f), 0);
 
-            halfBelt.offsetV = offset;
+            halfBelt.offsetV(offset);
 
             halfBelt.setChanged();
         } else {
@@ -172,7 +173,7 @@ public class ElevatorPulleyVisual extends ShaftVisual<ElevatorPulleyBlockEntity>
     }
 
     private void animateCoil(float offset) {
-        coil.offsetV = -offset * 2;
+        coil.offsetV(-offset * 2);
 
         coil.setChanged();
     }

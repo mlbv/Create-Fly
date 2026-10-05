@@ -2,7 +2,7 @@ package com.zurrtum.create.client.content.equipment.extendoGrip;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.zurrtum.create.AllItems;
-import com.zurrtum.create.client.flywheel.lib.transform.TransformStack;
+import dev.engine_room.flywheel.lib.transform.TransformStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.player.LocalPlayer;

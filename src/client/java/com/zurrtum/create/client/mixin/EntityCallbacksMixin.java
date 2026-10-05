@@ -1,6 +1,5 @@
 package com.zurrtum.create.client.mixin;
 
-import com.zurrtum.create.client.flywheel.impl.visualization.VisualizationEventHandler;
 import com.zurrtum.create.content.contraptions.minecart.capability.CapabilityMinecartController;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.world.entity.Entity;
@@ -19,7 +18,6 @@ public class EntityCallbacksMixin {
 
     @Inject(method = "onTrackingEnd(Lnet/minecraft/world/entity/Entity;)V", at = @At("HEAD"))
     private void onEntityLeaveLevel(Entity entity, CallbackInfo ci) {
-        VisualizationEventHandler.onEntityLeaveLevel(this$0, entity);
         CapabilityMinecartController.onEntityDeath(this$0, entity);
     }
 }

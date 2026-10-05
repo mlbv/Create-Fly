@@ -1,17 +1,17 @@
 package com.zurrtum.create.client.content.equipment.bell;
 
 import com.zurrtum.create.catnip.math.AngleHelper;
-import com.zurrtum.create.client.flywheel.api.instance.Instance;
-import com.zurrtum.create.client.flywheel.api.model.Model;
-import com.zurrtum.create.client.flywheel.api.visual.ShaderLightVisual;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationContext;
+import dev.engine_room.flywheel.api.instance.Instance;
+import dev.engine_room.flywheel.api.model.Model;
+import dev.engine_room.flywheel.api.visual.ShaderLightVisual;
+import dev.engine_room.flywheel.api.visualization.VisualizationContext;
 import com.zurrtum.create.client.flywheel.lib.instance.InstanceTypes;
 import com.zurrtum.create.client.flywheel.lib.instance.TransformedInstance;
 import com.zurrtum.create.client.flywheel.lib.model.Models;
 import com.zurrtum.create.client.flywheel.lib.model.baked.PartialModel;
 import com.zurrtum.create.client.flywheel.lib.visual.AbstractBlockEntityVisual;
-import com.zurrtum.create.client.flywheel.lib.visual.SimpleDynamicVisual;
-import com.zurrtum.create.client.flywheel.lib.visualization.SimpleBlockEntityVisualizer;
+import dev.engine_room.flywheel.lib.visual.SimpleDynamicVisual;
+import dev.engine_room.flywheel.lib.visualization.SimpleBlockEntityVisualizer;
 import com.zurrtum.create.content.equipment.bell.AbstractBellBlockEntity;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.BellBlock;

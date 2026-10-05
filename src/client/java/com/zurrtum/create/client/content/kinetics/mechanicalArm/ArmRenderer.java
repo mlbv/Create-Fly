@@ -10,7 +10,7 @@ import com.zurrtum.create.client.catnip.render.SuperByteBuffer;
 import com.zurrtum.create.client.catnip.render.SuperByteBufferRenderState;
 import com.zurrtum.create.client.content.kinetics.base.KineticBlockEntityVisual;
 import com.zurrtum.create.client.content.kinetics.mechanicalArm.ArmRenderer.ArmRenderState;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationManager;
+import dev.engine_room.flywheel.api.visualization.VisualizationManager;
 import com.zurrtum.create.client.foundation.blockEntity.renderer.SmartBlockEntityRenderer;
 import com.zurrtum.create.content.kinetics.mechanicalArm.ArmBlock;
 import com.zurrtum.create.content.kinetics.mechanicalArm.ArmBlockEntity;

@@ -7,16 +7,16 @@ import com.zurrtum.create.catnip.theme.Color;
 import com.zurrtum.create.client.AllPartialModels;
 import com.zurrtum.create.client.catnip.animation.AnimationTickHolder;
 import com.zurrtum.create.client.content.kinetics.base.SingleAxisRotatingVisual;
-import com.zurrtum.create.client.flywheel.api.instance.Instance;
-import com.zurrtum.create.client.flywheel.api.visual.DynamicVisual;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationContext;
-import com.zurrtum.create.client.flywheel.lib.instance.AbstractInstance;
-import com.zurrtum.create.client.flywheel.lib.instance.FlatLit;
+import dev.engine_room.flywheel.api.instance.Instance;
+import dev.engine_room.flywheel.api.visual.DynamicVisual;
+import dev.engine_room.flywheel.api.visualization.VisualizationContext;
+import dev.engine_room.flywheel.lib.instance.AbstractInstance;
+import dev.engine_room.flywheel.lib.instance.FlatLit;
 import com.zurrtum.create.client.flywheel.lib.instance.InstanceTypes;
 import com.zurrtum.create.client.flywheel.lib.instance.TransformedInstance;
 import com.zurrtum.create.client.flywheel.lib.model.Models;
-import com.zurrtum.create.client.flywheel.lib.transform.TransformStack;
-import com.zurrtum.create.client.flywheel.lib.visual.SimpleDynamicVisual;
+import dev.engine_room.flywheel.lib.transform.TransformStack;
+import dev.engine_room.flywheel.lib.visual.SimpleDynamicVisual;
 import com.zurrtum.create.content.kinetics.mechanicalArm.ArmBlock;
 import com.zurrtum.create.content.kinetics.mechanicalArm.ArmBlockEntity;
 import com.zurrtum.create.content.kinetics.mechanicalArm.ArmBlockEntity.Phase;
@@ -205,6 +205,7 @@ public class ArmVisual extends SingleAxisRotatingVisual<ArmBlockEntity> implemen
             Models.chunkPartial(
                 blockEntity.goggles ? AllPartialModels.ARM_CLAW_BASE_GOGGLES : AllPartialModels.ARM_CLAW_BASE)
         ).stealInstance(claw);
+        claw.flush();
     }
 
     @Override

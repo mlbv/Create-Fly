@@ -1,6 +1,6 @@
 package com.zurrtum.create.client.content.trains.bogey;
 
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationContext;
+import dev.engine_room.flywheel.api.visualization.VisualizationContext;
 
 @FunctionalInterface
 public interface BogeyVisualizer {

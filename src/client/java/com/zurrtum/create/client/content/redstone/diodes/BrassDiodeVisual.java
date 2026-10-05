@@ -2,14 +2,14 @@ package com.zurrtum.create.client.content.redstone.diodes;
 
 import com.zurrtum.create.catnip.theme.Color;
 import com.zurrtum.create.client.AllPartialModels;
-import com.zurrtum.create.client.flywheel.api.instance.Instance;
-import com.zurrtum.create.client.flywheel.api.visual.TickableVisual;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationContext;
+import dev.engine_room.flywheel.api.instance.Instance;
+import dev.engine_room.flywheel.api.visual.TickableVisual;
+import dev.engine_room.flywheel.api.visualization.VisualizationContext;
 import com.zurrtum.create.client.flywheel.lib.instance.InstanceTypes;
 import com.zurrtum.create.client.flywheel.lib.instance.TransformedInstance;
 import com.zurrtum.create.client.flywheel.lib.model.Models;
 import com.zurrtum.create.client.flywheel.lib.visual.AbstractBlockEntityVisual;
-import com.zurrtum.create.client.flywheel.lib.visual.SimpleTickableVisual;
+import dev.engine_room.flywheel.lib.visual.SimpleTickableVisual;
 import com.zurrtum.create.content.redstone.diodes.BrassDiodeBlockEntity;
 
 import java.util.function.Consumer;

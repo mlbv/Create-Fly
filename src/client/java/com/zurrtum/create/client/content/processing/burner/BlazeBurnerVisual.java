@@ -5,19 +5,19 @@ import com.zurrtum.create.client.AllPartialModels;
 import com.zurrtum.create.client.AllSpriteShifts;
 import com.zurrtum.create.client.catnip.animation.AnimationTickHolder;
 import com.zurrtum.create.client.catnip.render.SpriteShiftEntry;
-import com.zurrtum.create.client.flywheel.api.instance.Instance;
-import com.zurrtum.create.client.flywheel.api.visual.DynamicVisual;
-import com.zurrtum.create.client.flywheel.api.visual.ShaderLightVisual;
-import com.zurrtum.create.client.flywheel.api.visual.TickableVisual;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationContext;
+import dev.engine_room.flywheel.api.instance.Instance;
+import dev.engine_room.flywheel.api.visual.DynamicVisual;
+import dev.engine_room.flywheel.api.visual.ShaderLightVisual;
+import dev.engine_room.flywheel.api.visual.TickableVisual;
+import dev.engine_room.flywheel.api.visualization.VisualizationContext;
 import com.zurrtum.create.client.flywheel.lib.instance.InstanceTypes;
 import com.zurrtum.create.client.flywheel.lib.instance.TransformedInstance;
 import com.zurrtum.create.client.flywheel.lib.model.Models;
 import com.zurrtum.create.client.flywheel.lib.model.baked.PartialModel;
-import com.zurrtum.create.client.flywheel.lib.transform.Translate;
+import dev.engine_room.flywheel.lib.transform.Translate;
 import com.zurrtum.create.client.flywheel.lib.visual.AbstractBlockEntityVisual;
-import com.zurrtum.create.client.flywheel.lib.visual.SimpleDynamicVisual;
-import com.zurrtum.create.client.flywheel.lib.visual.SimpleTickableVisual;
+import dev.engine_room.flywheel.lib.visual.SimpleDynamicVisual;
+import dev.engine_room.flywheel.lib.visual.SimpleTickableVisual;
 import com.zurrtum.create.client.foundation.render.AllInstanceTypes;
 import com.zurrtum.create.content.processing.burner.BlazeBurnerBlock;
 import com.zurrtum.create.content.processing.burner.BlazeBurnerBlock.HeatLevel;
@@ -92,6 +92,7 @@ public class BlazeBurnerVisual extends AbstractBlockEntityVisual<BlazeBurnerBloc
 
             PartialModel blazeModel = BlazeBurnerRenderer.getBlazeModel(heatLevel, validBlockAbove);
             instancerProvider().instancer(InstanceTypes.TRANSFORMED, Models.partial(blazeModel)).stealInstance(head);
+            head.flush();
 
             boolean needsRods = heatLevel.isAtLeast(BlazeBurnerBlock.HeatLevel.FADING);
             boolean hasRods = this.heatLevel.isAtLeast(HeatLevel.FADING);
@@ -209,20 +210,9 @@ public class BlazeBurnerVisual extends AbstractBlockEntityVisual<BlazeBurnerBloc
             heatLevel == BlazeBurnerBlock.HeatLevel.SEETHING ? AllSpriteShifts.SUPER_BURNER_FLAME :
                 AllSpriteShifts.BURNER_FLAME;
 
-        float spriteWidth = spriteShift.getTarget().getU1() - spriteShift.getTarget().getU0();
-
-        float spriteHeight = spriteShift.getTarget().getV1() - spriteShift.getTarget().getV0();
-
         float speed = 1 / 32.0f + 1 / 64.0f * heatLevel.ordinal();
 
-        flame.speedU = speed / 2;
-        flame.speedV = speed;
-
-        flame.scaleU = spriteWidth / 2;
-        flame.scaleV = spriteHeight / 2;
-
-        flame.diffU = spriteShift.getTarget().getU0() - spriteShift.getOriginal().getU0();
-        flame.diffV = spriteShift.getTarget().getV0() - spriteShift.getOriginal().getV0();
+        flame.speed(speed / 2, speed).setSpriteShift(spriteShift);
     }
 
     @Override

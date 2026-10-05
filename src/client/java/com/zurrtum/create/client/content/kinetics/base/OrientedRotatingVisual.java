@@ -2,13 +2,13 @@ package com.zurrtum.create.client.content.kinetics.base;
 
 import com.zurrtum.create.client.AllPartialModels;
 import com.zurrtum.create.client.AllPartialModels.GantryShaftKey;
-import com.zurrtum.create.client.flywheel.api.instance.Instance;
-import com.zurrtum.create.client.flywheel.api.model.Model;
-import com.zurrtum.create.client.flywheel.api.visual.BlockEntityVisual;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationContext;
+import dev.engine_room.flywheel.api.instance.Instance;
+import dev.engine_room.flywheel.api.model.Model;
+import dev.engine_room.flywheel.api.visual.BlockEntityVisual;
+import dev.engine_room.flywheel.api.visualization.VisualizationContext;
 import com.zurrtum.create.client.flywheel.lib.model.Models;
 import com.zurrtum.create.client.flywheel.lib.model.baked.PartialModel;
-import com.zurrtum.create.client.flywheel.lib.visualization.SimpleBlockEntityVisualizer;
+import dev.engine_room.flywheel.lib.visualization.SimpleBlockEntityVisualizer;
 import com.zurrtum.create.client.foundation.render.AllInstanceTypes;
 import com.zurrtum.create.content.kinetics.base.KineticBlockEntity;
 import com.zurrtum.create.content.kinetics.gantry.GantryShaftBlock;

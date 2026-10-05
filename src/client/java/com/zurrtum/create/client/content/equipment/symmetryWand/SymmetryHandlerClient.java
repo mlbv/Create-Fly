@@ -6,7 +6,7 @@ import com.zurrtum.create.client.AllPartialModels;
 import com.zurrtum.create.client.catnip.animation.AnimationTickHolder;
 import com.zurrtum.create.client.catnip.render.CachedBuffers;
 import com.zurrtum.create.client.flywheel.lib.model.baked.PartialModel;
-import com.zurrtum.create.client.flywheel.lib.transform.TransformStack;
+import dev.engine_room.flywheel.lib.transform.TransformStack;
 import com.zurrtum.create.client.foundation.blockEntity.renderer.SmartBlockEntityRenderer;
 import com.zurrtum.create.content.equipment.symmetryWand.SymmetryWandItem;
 import com.zurrtum.create.content.equipment.symmetryWand.mirror.CrossPlaneMirror;

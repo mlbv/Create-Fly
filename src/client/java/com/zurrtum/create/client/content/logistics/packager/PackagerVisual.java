@@ -1,15 +1,15 @@
 package com.zurrtum.create.client.content.logistics.packager;
 
 import com.zurrtum.create.catnip.math.AngleHelper;
-import com.zurrtum.create.client.flywheel.api.instance.Instance;
-import com.zurrtum.create.client.flywheel.api.visual.ShaderLightVisual;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationContext;
+import dev.engine_room.flywheel.api.instance.Instance;
+import dev.engine_room.flywheel.api.visual.ShaderLightVisual;
+import dev.engine_room.flywheel.api.visualization.VisualizationContext;
 import com.zurrtum.create.client.flywheel.lib.instance.InstanceTypes;
 import com.zurrtum.create.client.flywheel.lib.instance.TransformedInstance;
 import com.zurrtum.create.client.flywheel.lib.model.Models;
 import com.zurrtum.create.client.flywheel.lib.model.baked.PartialModel;
 import com.zurrtum.create.client.flywheel.lib.visual.AbstractBlockEntityVisual;
-import com.zurrtum.create.client.flywheel.lib.visual.SimpleDynamicVisual;
+import dev.engine_room.flywheel.lib.visual.SimpleDynamicVisual;
 import com.zurrtum.create.content.logistics.packager.PackagerBlock;
 import com.zurrtum.create.content.logistics.packager.PackagerBlockEntity;
 import net.minecraft.core.Direction;
@@ -74,6 +74,7 @@ public class PackagerVisual<T extends PackagerBlockEntity> extends AbstractBlock
         if (hatchPartial != lastHatchPartial) {
             instancerProvider().instancer(InstanceTypes.TRANSFORMED, Models.chunkPartial(hatchPartial))
                 .stealInstance(hatch);
+            hatch.flush();
 
             lastHatchPartial = hatchPartial;
         }

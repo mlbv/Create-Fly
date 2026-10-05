@@ -11,7 +11,7 @@ import com.zurrtum.create.client.content.logistics.box.PackageVisual;
 import com.zurrtum.create.client.content.logistics.depot.EjectorItemEntityRenderer;
 import com.zurrtum.create.client.content.trains.entity.CarriageContraptionEntityRenderer;
 import com.zurrtum.create.client.content.trains.entity.CarriageContraptionVisual;
-import com.zurrtum.create.client.flywheel.lib.visualization.SimpleEntityVisualizer;
+import dev.engine_room.flywheel.lib.visualization.SimpleEntityVisualizer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.entity.Entity;

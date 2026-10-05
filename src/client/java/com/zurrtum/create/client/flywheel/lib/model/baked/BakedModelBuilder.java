@@ -1,10 +1,9 @@
 package com.zurrtum.create.client.flywheel.lib.model.baked;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.zurrtum.create.client.flywheel.api.material.Material;
-import com.zurrtum.create.client.flywheel.lib.internal.FlwLibXplat;
+import dev.engine_room.flywheel.api.material.Material;
 import com.zurrtum.create.client.flywheel.lib.model.ModelUtil;
-import com.zurrtum.create.client.flywheel.lib.model.SimpleModel;
+import dev.engine_room.flywheel.lib.model.SimpleModel;
 import net.minecraft.client.renderer.block.BlockAndTintGetter;
 import net.minecraft.client.renderer.block.dispatch.BlockStateModel;
 import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
@@ -68,6 +67,6 @@ public final class BakedModelBuilder {
             materialFunc = ModelUtil::getMaterial;
         }
 
-        return FlwLibXplat.INSTANCE.buildBakedModelBuilder(this);
+        return ModelBuilderImpl.buildBakedModelBuilder(this);
     }
 }

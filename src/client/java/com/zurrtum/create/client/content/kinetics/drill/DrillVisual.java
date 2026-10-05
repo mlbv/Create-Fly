@@ -2,7 +2,7 @@ package com.zurrtum.create.client.content.kinetics.drill;
 
 import com.zurrtum.create.client.AllPartialModels;
 import com.zurrtum.create.client.content.kinetics.base.OrientedRotatingVisual;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationContext;
+import dev.engine_room.flywheel.api.visualization.VisualizationContext;
 import com.zurrtum.create.client.flywheel.lib.model.Models;
 import com.zurrtum.create.content.kinetics.drill.DrillBlockEntity;
 import net.minecraft.core.Direction;

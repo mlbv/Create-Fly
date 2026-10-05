@@ -1,8 +1,8 @@
 package com.zurrtum.create.client.content.contraptions.render;
 
-import com.zurrtum.create.client.flywheel.api.instance.InstancerProvider;
-import com.zurrtum.create.client.flywheel.api.visual.Visual;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationContext;
+import dev.engine_room.flywheel.api.instance.InstancerProvider;
+import dev.engine_room.flywheel.api.visual.Visual;
+import dev.engine_room.flywheel.api.visualization.VisualizationContext;
 import com.zurrtum.create.content.contraptions.behaviour.MovementContext;
 import net.minecraft.client.renderer.block.BlockAndTintGetter;
 import net.minecraft.world.level.LightLayer;

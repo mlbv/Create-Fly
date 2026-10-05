@@ -12,7 +12,7 @@ import com.zurrtum.create.client.compat.computercraft.ComputerScreen;
 import com.zurrtum.create.client.compat.computercraft.ComputerScreen.AdditionalRenderer;
 import com.zurrtum.create.client.content.trains.entity.TrainIcon;
 import com.zurrtum.create.client.flywheel.lib.model.baked.PartialModel;
-import com.zurrtum.create.client.flywheel.lib.transform.TransformStack;
+import dev.engine_room.flywheel.lib.transform.TransformStack;
 import com.zurrtum.create.client.foundation.gui.AllGuiTextures;
 import com.zurrtum.create.client.foundation.gui.AllIcons;
 import com.zurrtum.create.client.foundation.gui.widget.IconButton;

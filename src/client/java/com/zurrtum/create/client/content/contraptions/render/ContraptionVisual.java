@@ -4,24 +4,24 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.zurrtum.create.api.behaviour.movement.MovementBehaviour;
 import com.zurrtum.create.client.api.behaviour.movement.MovementRenderBehaviour;
 import com.zurrtum.create.client.content.contraptions.render.ClientContraption.RenderedBlocks;
-import com.zurrtum.create.client.flywheel.api.task.Plan;
-import com.zurrtum.create.client.flywheel.api.visual.BlockEntityVisual;
-import com.zurrtum.create.client.flywheel.api.visual.DynamicVisual;
-import com.zurrtum.create.client.flywheel.api.visual.ShaderLightVisual;
-import com.zurrtum.create.client.flywheel.api.visual.TickableVisual;
-import com.zurrtum.create.client.flywheel.api.visualization.BlockEntityVisualizer;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualEmbedding;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationContext;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizerRegistry;
+import dev.engine_room.flywheel.api.task.Plan;
+import dev.engine_room.flywheel.api.visual.BlockEntityVisual;
+import dev.engine_room.flywheel.api.visual.DynamicVisual;
+import dev.engine_room.flywheel.api.visual.ShaderLightVisual;
+import dev.engine_room.flywheel.api.visual.TickableVisual;
+import dev.engine_room.flywheel.api.visualization.BlockEntityVisualizer;
+import dev.engine_room.flywheel.api.visualization.VisualEmbedding;
+import dev.engine_room.flywheel.api.visualization.VisualizationContext;
+import dev.engine_room.flywheel.api.visualization.VisualizerRegistry;
 import com.zurrtum.create.client.flywheel.lib.instance.InstanceTypes;
 import com.zurrtum.create.client.flywheel.lib.instance.TransformedInstance;
 import com.zurrtum.create.client.flywheel.lib.model.ModelUtil;
 import com.zurrtum.create.client.flywheel.lib.model.baked.BlockModelBuilder;
-import com.zurrtum.create.client.flywheel.lib.task.ForEachPlan;
-import com.zurrtum.create.client.flywheel.lib.task.NestedPlan;
-import com.zurrtum.create.client.flywheel.lib.task.PlanMap;
-import com.zurrtum.create.client.flywheel.lib.task.RunnablePlan;
-import com.zurrtum.create.client.flywheel.lib.visual.AbstractEntityVisual;
+import dev.engine_room.flywheel.lib.task.ForEachPlan;
+import dev.engine_room.flywheel.lib.task.NestedPlan;
+import dev.engine_room.flywheel.lib.task.PlanMap;
+import dev.engine_room.flywheel.lib.task.RunnablePlan;
+import dev.engine_room.flywheel.lib.visual.AbstractEntityVisual;
 import com.zurrtum.create.client.foundation.utility.worldWrappers.WrappedBlockAndTintGetter;
 import com.zurrtum.create.client.foundation.virtualWorld.VirtualRenderWorld;
 import com.zurrtum.create.content.contraptions.AbstractContraptionEntity;
@@ -104,6 +104,7 @@ public class ContraptionVisual<E extends AbstractContraptionEntity> extends Abst
             structure = instancer.createInstance();
         } else {
             instancer.stealInstance(structure);
+            structure.flush();
         }
 
         structure.setChanged();

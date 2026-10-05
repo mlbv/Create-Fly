@@ -1,15 +1,18 @@
 package com.zurrtum.create.client.content.kinetics.base;
 
-import com.zurrtum.create.client.flywheel.api.instance.InstanceHandle;
-import com.zurrtum.create.client.flywheel.api.instance.InstanceType;
+import dev.engine_room.flywheel.api.instance.InstanceHandle;
+import dev.engine_room.flywheel.api.instance.InstanceType;
+import dev.engine_room.flywheel.lib.util.ExtraMemoryOps;
 import net.minecraft.core.Vec3i;
 import net.minecraft.world.phys.Vec3;
 import org.joml.Vector3fc;
 
 public class RotatingPivotInstance extends RotatingInstance {
-    public float pivotX;
-    public float pivotY;
-    public float pivotZ;
+    public static final int OFF_PIVOT = 52;
+
+    private float pivotX;
+    private float pivotY;
+    private float pivotZ;
 
     public RotatingPivotInstance(InstanceType<? extends RotatingInstance> type, InstanceHandle handle) {
         super(type, handle);
@@ -19,6 +22,7 @@ public class RotatingPivotInstance extends RotatingInstance {
         pivotX = x;
         pivotY = y;
         pivotZ = z;
+        ExtraMemoryOps.putVector3f(slabPtr() + OFF_PIVOT, x, y, z);
         return this;
     }
 
@@ -35,9 +39,12 @@ public class RotatingPivotInstance extends RotatingInstance {
     }
 
     public RotatingPivotInstance translatePivot(float x, float y, float z) {
-        pivotX += x;
-        pivotY += y;
-        pivotZ += z;
-        return this;
+        return pivot(pivotX + x, pivotY + y, pivotZ + z);
+    }
+
+    @Override
+    public RotatingPivotInstance flush() {
+        super.flush();
+        return pivot(pivotX, pivotY, pivotZ);
     }
 }

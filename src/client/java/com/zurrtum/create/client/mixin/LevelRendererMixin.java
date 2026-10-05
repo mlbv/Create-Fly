@@ -3,8 +3,6 @@ package com.zurrtum.create.client.mixin;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
-import com.mojang.blaze3d.buffers.GpuBufferSlice;
-import com.mojang.blaze3d.resource.GraphicsResourceAllocator;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.zurrtum.create.client.Create;
 import com.zurrtum.create.client.catnip.animation.AnimationTickHolder;
@@ -18,103 +16,32 @@ import com.zurrtum.create.client.content.kinetics.chainConveyor.ChainConveyorInt
 import com.zurrtum.create.client.content.trains.entity.CarriageCouplingRenderer;
 import com.zurrtum.create.client.content.trains.track.TrackBlockOutline;
 import com.zurrtum.create.client.content.trains.track.TrackTargetingClient;
-import com.zurrtum.create.client.flywheel.impl.event.RenderContextHolder;
-import com.zurrtum.create.client.flywheel.impl.event.RenderContextImpl;
 import com.zurrtum.create.client.infrastructure.render.BreakingRenderStateInfo;
-import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.LevelRenderer;
-import net.minecraft.client.renderer.ShaderManager;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.block.BlockStateModelSet;
 import net.minecraft.client.renderer.block.dispatch.BlockStateModel;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
-import net.minecraft.client.renderer.entity.EntityRenderDispatcher;
 import net.minecraft.client.renderer.state.level.BlockBreakingRenderState;
 import net.minecraft.client.renderer.state.level.BlockOutlineRenderState;
 import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.client.renderer.state.level.LevelRenderState;
-import net.minecraft.client.renderer.texture.TextureManager;
-import net.minecraft.client.resources.model.ModelManager;
-import net.minecraft.client.resources.model.sprite.AtlasManager;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
-import org.joml.Matrix4fc;
-import org.joml.Vector4f;
-import org.jspecify.annotations.NonNull;
-import org.jspecify.annotations.Nullable;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(LevelRenderer.class)
-public abstract class LevelRendererMixin implements RenderContextHolder {
-    @Shadow
-    @Final
-    private LevelRenderState levelRenderState;
+public abstract class LevelRendererMixin {
     @Shadow
     @Final
     private GameRenderer gameRenderer;
-    @Unique
-    private RenderContextImpl renderContext;
-
-    @Inject(method = "<init>", at = @At("TAIL"))
-    private void flywheel$init(
-        EntityRenderDispatcher entityRenderDispatcher,
-        BlockEntityRenderDispatcher blockEntityRenderDispatcher,
-        ModelManager modelManager,
-        TextureManager textureManager,
-        AtlasManager atlasManager,
-        ShaderManager shaderManager,
-        GameRenderer gameRenderer,
-        int width,
-        int height,
-        CallbackInfo ci
-    ) {
-        renderContext = new RenderContextImpl(levelRenderState);
-    }
-
-    @Override
-    public void flywheel$updateRenderContext(@Nullable ClientLevel level, float partialTick) {
-        renderContext.update(level, partialTick);
-    }
-
-    @Override
-    public void flywheel$updateProjection(@NonNull Matrix4fc projection) {
-        renderContext.updateProjection(projection);
-    }
-
-    @Inject(method = "render(Lcom/mojang/blaze3d/resource/GraphicsResourceAllocator;Lnet/minecraft/client/DeltaTracker;ZLnet/minecraft/client/renderer/state/level/CameraRenderState;Lorg/joml/Matrix4fc;Lcom/mojang/blaze3d/buffers/GpuBufferSlice;Lorg/joml/Vector4f;Z)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/DeltaTracker;getGameTimeDeltaPartialTick(Z)F"))
-    private void flywheel$beginRender(
-        GraphicsResourceAllocator resourceAllocator,
-        DeltaTracker deltaTracker,
-        boolean renderOutline,
-        CameraRenderState cameraState,
-        Matrix4fc modelViewMatrix,
-        GpuBufferSlice terrainFog,
-        Vector4f fogColor,
-        boolean shouldRenderSky,
-        CallbackInfo ci
-    ) {
-        renderContext.onStartLevelRender();
-    }
-
-    @Inject(method = "lambda$addMainPass$0", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/feature/FeatureRenderDispatcher$PreparedFrame;executeSolid()V"))
-    private void flywheel$beforeSolid(CallbackInfo ci) {
-        renderContext.beforeSolid();
-    }
-
-    @Inject(method = "lambda$addMainPass$0", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/feature/FeatureRenderDispatcher$PreparedFrame;executeTranslucent()V"))
-    private void flywheel$beforeTranslucent(CallbackInfo ci) {
-        renderContext.beforeTranslucent();
-    }
 
     @Inject(method = "submitFeatures(Lnet/minecraft/client/renderer/state/level/LevelRenderState;Lnet/minecraft/client/renderer/SubmitNodeCollector;Z)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/LevelRenderer;finalizeGizmoCollection()V"))
     private void afterSubmitParticles(

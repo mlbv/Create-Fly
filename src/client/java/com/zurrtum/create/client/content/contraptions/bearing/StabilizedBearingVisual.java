@@ -6,7 +6,7 @@ import com.zurrtum.create.client.catnip.animation.AnimationTickHolder;
 import com.zurrtum.create.client.content.contraptions.render.ActorVisual;
 import com.zurrtum.create.client.content.kinetics.base.KineticBlockEntityVisual;
 import com.zurrtum.create.client.content.kinetics.base.RotatingInstance;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationContext;
+import dev.engine_room.flywheel.api.visualization.VisualizationContext;
 import com.zurrtum.create.client.flywheel.lib.instance.InstanceTypes;
 import com.zurrtum.create.client.flywheel.lib.instance.OrientedInstance;
 import com.zurrtum.create.client.flywheel.lib.model.Models;

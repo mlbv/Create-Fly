@@ -5,9 +5,9 @@ import com.mojang.blaze3d.PrimitiveTopology;
 import com.mojang.blaze3d.vertex.BufferBuilder;
 import com.mojang.blaze3d.vertex.ByteBufferBuilder;
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
-import com.zurrtum.create.client.flywheel.api.material.Material;
-import com.zurrtum.create.client.flywheel.api.model.Mesh;
-import com.zurrtum.create.client.flywheel.api.model.Model;
+import dev.engine_room.flywheel.api.material.Material;
+import dev.engine_room.flywheel.api.model.Mesh;
+import dev.engine_room.flywheel.api.model.Model;
 import org.jetbrains.annotations.UnknownNullability;
 
 import java.util.Arrays;

@@ -3,7 +3,7 @@ package com.zurrtum.create.client.content.kinetics.chainConveyor;
 import com.google.common.cache.Cache;
 import com.zurrtum.create.catnip.data.WorldAttached;
 import com.zurrtum.create.catnip.math.AngleHelper;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationManager;
+import dev.engine_room.flywheel.api.visualization.VisualizationManager;
 import com.zurrtum.create.content.kinetics.chainConveyor.ChainConveyorBehaviour;
 import com.zurrtum.create.content.kinetics.chainConveyor.ChainConveyorBlockEntity;
 import com.zurrtum.create.content.kinetics.chainConveyor.ChainConveyorPackage;

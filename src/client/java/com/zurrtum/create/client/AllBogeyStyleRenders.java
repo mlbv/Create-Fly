@@ -4,7 +4,7 @@ import com.zurrtum.create.AllBogeyStyles;
 import com.zurrtum.create.client.content.trains.bogey.BogeyBlockEntityRenderer.BogeyRenderState;
 import com.zurrtum.create.client.content.trains.bogey.BogeyVisual;
 import com.zurrtum.create.client.content.trains.bogey.SizeRenderer;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationContext;
+import dev.engine_room.flywheel.api.visualization.VisualizationContext;
 import com.zurrtum.create.content.trains.bogey.BogeySize;
 import com.zurrtum.create.content.trains.bogey.BogeyStyle;
 import net.minecraft.nbt.CompoundTag;

@@ -44,7 +44,8 @@ https://www.curseforge.com/minecraft/mc-mods/create-fly/files/all?page=1&pageSiz
 - Please do not report issues with this mod to simibubi and NeoForge Create.
 - Please do not use old game saves. Because data loading changes, data may be lost.
 - Recommended to use REI or JEI or EIV to view recipes, and please report any game crashes.
-- Using shaders will disable Flywheel optimizations.
+- The client requires [CrankShaft](https://github.com/Warfactory-Official/CrankShaft) (`crankshaft`), which replaces the
+  embedded Flywheel. Dedicated servers do not need it.
 
 ### 4. TODO List
 
@@ -55,7 +56,6 @@ https://www.curseforge.com/minecraft/mc-mods/create-fly/files/all?page=1&pageSiz
 ## This project modifies and includes code from the following projects:
 
 - Engine-Room/Flywheel
-- Engine-Room/Flywheel/Vanillin
 - Creators-of-Create/Create
 - Creators-of-Create/Ponder
 

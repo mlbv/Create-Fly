@@ -7,7 +7,6 @@ import com.zurrtum.create.client.Create;
 import com.zurrtum.create.client.catnip.animation.AnimationTickHolder;
 import com.zurrtum.create.client.catnip.levelWrappers.WrappedClientLevel;
 import com.zurrtum.create.client.content.contraptions.ContraptionHandlerClient;
-import com.zurrtum.create.client.flywheel.impl.visualization.VisualizationEventHandler;
 import com.zurrtum.create.client.foundation.block.render.BlockDestructionProgressExtension;
 import com.zurrtum.create.client.foundation.block.render.MultiPosDestructionHandler;
 import com.zurrtum.create.client.ponder.Ponder;
@@ -80,7 +79,6 @@ public abstract class ClientLevelMixin extends Level {
     @Inject(method = "addEntity(Lnet/minecraft/world/entity/Entity;)V", at = @At("HEAD"))
     private void addEntity(CallbackInfo ci, @Local(argsOnly = true) Entity entity) {
         ClientLevel world = (ClientLevel) (Object) this;
-        VisualizationEventHandler.onEntityJoinLevel(world, entity);
         ContraptionHandlerClient.addSpawnedContraptionsToCollisionList(entity, world);
         CapabilityMinecartController.attach(entity);
     }

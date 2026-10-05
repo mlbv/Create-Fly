@@ -4,15 +4,15 @@ import com.zurrtum.create.client.AllPartialModels;
 import com.zurrtum.create.client.AllTrackRenders;
 import com.zurrtum.create.client.catnip.animation.AnimationTickHolder;
 import com.zurrtum.create.client.content.trains.track.TrackBlockRenderer;
-import com.zurrtum.create.client.flywheel.api.instance.Instance;
-import com.zurrtum.create.client.flywheel.api.visual.ShaderLightVisual;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationContext;
+import dev.engine_room.flywheel.api.instance.Instance;
+import dev.engine_room.flywheel.api.visual.ShaderLightVisual;
+import dev.engine_room.flywheel.api.visualization.VisualizationContext;
 import com.zurrtum.create.client.flywheel.lib.instance.InstanceTypes;
 import com.zurrtum.create.client.flywheel.lib.instance.TransformedInstance;
 import com.zurrtum.create.client.flywheel.lib.model.Models;
 import com.zurrtum.create.client.flywheel.lib.model.baked.PartialModel;
 import com.zurrtum.create.client.flywheel.lib.visual.AbstractBlockEntityVisual;
-import com.zurrtum.create.client.flywheel.lib.visual.SimpleTickableVisual;
+import dev.engine_room.flywheel.lib.visual.SimpleTickableVisual;
 import com.zurrtum.create.content.trains.signal.SignalBlockEntity;
 import com.zurrtum.create.content.trains.signal.SignalBlockEntity.OverlayState;
 import com.zurrtum.create.content.trains.signal.SignalBlockEntity.SignalState;
@@ -96,6 +96,7 @@ public class SignalVisual extends AbstractBlockEntityVisual<SignalBlockEntity> i
             PartialModel partial = isRedLight ? AllPartialModels.SIGNAL_ON : AllPartialModels.SIGNAL_OFF;
             instancerProvider().instancer(InstanceTypes.TRANSFORMED, Models.partial(partial))
                 .stealInstance(signalLight);
+            signalLight.flush();
         }
 
         signalLight.setIdentityTransform().translate(getVisualPosition());
@@ -137,6 +138,7 @@ public class SignalVisual extends AbstractBlockEntityVisual<SignalBlockEntity> i
 
             instancerProvider().instancer(InstanceTypes.TRANSFORMED, Models.chunkPartial(partial))
                 .stealInstance(signalOverlay);
+            signalOverlay.flush();
 
             signalOverlay.setIdentityTransform().translate(targetPosition.subtract(renderOrigin()));
 

@@ -5,10 +5,10 @@ import com.zurrtum.create.client.AllPartialModels;
 import com.zurrtum.create.client.AllSpriteShifts;
 import com.zurrtum.create.client.content.kinetics.base.SingleAxisRotatingVisual;
 import com.zurrtum.create.client.content.processing.burner.ScrollInstance;
-import com.zurrtum.create.client.flywheel.api.instance.Instance;
-import com.zurrtum.create.client.flywheel.api.instance.InstancerProvider;
-import com.zurrtum.create.client.flywheel.api.visual.TickableVisual;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationContext;
+import dev.engine_room.flywheel.api.instance.Instance;
+import dev.engine_room.flywheel.api.instance.InstancerProvider;
+import dev.engine_room.flywheel.api.visual.TickableVisual;
+import dev.engine_room.flywheel.api.visualization.VisualizationContext;
 import com.zurrtum.create.client.flywheel.lib.instance.InstanceTypes;
 import com.zurrtum.create.client.flywheel.lib.instance.OrientedInstance;
 import com.zurrtum.create.client.flywheel.lib.model.Models;
@@ -50,15 +50,15 @@ public class MechanicalCrafterVisual extends SingleAxisRotatingVisual<Mechanical
                 AllInstanceTypes.SCROLLING_STEP,
                 Models.chunkPartial(AllPartialModels.MECHANICAL_CRAFTER_BELT)
             ).createInstance().setSpriteShift(AllSpriteShifts.CRAFTER_THINGIES, 1, 1, 0.25f, 1).position(visualPos)
-            .rotation(lid.rotation);
+            .rotation(lid.rotation());
         frame = instancerProvider.instancer(
             InstanceTypes.ORIENTED,
             Models.chunkPartial(AllPartialModels.MECHANICAL_CRAFTER_BELT_FRAME)
-        ).createInstance().position(visualPos).rotation(lid.rotation);
+        ).createInstance().position(visualPos).rotation(lid.rotation());
         arrow = instancerProvider.instancer(
             InstanceTypes.ORIENTED,
             Models.chunkPartial(AllPartialModels.MECHANICAL_CRAFTER_ARROW)
-        ).createInstance().position(visualPos).rotation(lid.rotation);
+        ).createInstance().position(visualPos).rotation(lid.rotation());
         updateVisible();
         lid.setChanged();
         frame.setChanged();
@@ -82,6 +82,10 @@ public class MechanicalCrafterVisual extends SingleAxisRotatingVisual<Mechanical
         belt.setVisible(valid);
         frame.setVisible(valid);
         arrow.setVisible(!valid);
+        lid.flush();
+        belt.flush();
+        frame.flush();
+        arrow.flush();
     }
 
     private void updateBeltSpeed() {

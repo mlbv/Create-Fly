@@ -2,9 +2,9 @@ package com.zurrtum.create.client.flywheel.lib.model.baked;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.vertex.BufferBuilder;
-import com.zurrtum.create.client.flywheel.api.material.Material;
-import com.zurrtum.create.client.flywheel.api.model.Model;
-import com.zurrtum.create.client.flywheel.lib.model.SimpleModel;
+import dev.engine_room.flywheel.api.material.Material;
+import dev.engine_room.flywheel.api.model.Model;
+import dev.engine_room.flywheel.lib.model.SimpleModel;
 import it.unimi.dsi.fastutil.objects.Reference2ReferenceArrayMap;
 import it.unimi.dsi.fastutil.objects.Reference2ReferenceMap;
 import net.minecraft.client.renderer.chunk.ChunkSectionLayer;

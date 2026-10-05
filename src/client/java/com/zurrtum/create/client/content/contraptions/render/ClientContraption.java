@@ -2,7 +2,7 @@ package com.zurrtum.create.client.content.contraptions.render;
 
 import com.zurrtum.create.api.behaviour.movement.MovementBehaviour;
 import com.zurrtum.create.client.catnip.render.SuperByteBufferCache;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationManager;
+import dev.engine_room.flywheel.api.visualization.VisualizationManager;
 import com.zurrtum.create.client.foundation.virtualWorld.VirtualRenderWorld;
 import com.zurrtum.create.content.contraptions.Contraption;
 import com.zurrtum.create.content.kinetics.base.KineticBlockEntity;

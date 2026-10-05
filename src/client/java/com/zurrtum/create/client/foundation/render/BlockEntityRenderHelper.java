@@ -5,7 +5,7 @@ import com.mojang.blaze3d.vertex.PoseStack.Pose;
 import com.zurrtum.create.Create;
 import com.zurrtum.create.catnip.registry.RegisteredObjectsHelper;
 import com.zurrtum.create.client.catnip.render.SuperByteBuffer;
-import com.zurrtum.create.client.flywheel.lib.visualization.VisualizationHelper;
+import dev.engine_room.flywheel.lib.visualization.VisualizationHelper;
 import com.zurrtum.create.client.foundation.virtualWorld.VirtualRenderWorld;
 import com.zurrtum.create.client.infrastructure.config.AllConfigs;
 import net.minecraft.client.Minecraft;

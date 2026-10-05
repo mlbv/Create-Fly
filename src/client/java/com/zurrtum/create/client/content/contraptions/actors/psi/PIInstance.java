@@ -1,8 +1,8 @@
 package com.zurrtum.create.client.content.contraptions.actors.psi;
 
 import com.zurrtum.create.catnip.math.AngleHelper;
-import com.zurrtum.create.client.flywheel.api.instance.Instance;
-import com.zurrtum.create.client.flywheel.api.instance.InstancerProvider;
+import dev.engine_room.flywheel.api.instance.Instance;
+import dev.engine_room.flywheel.api.instance.InstancerProvider;
 import com.zurrtum.create.client.flywheel.lib.instance.InstanceTypes;
 import com.zurrtum.create.client.flywheel.lib.instance.TransformedInstance;
 import com.zurrtum.create.client.flywheel.lib.model.Models;
@@ -64,6 +64,7 @@ public class PIInstance {
                 InstanceTypes.TRANSFORMED,
                 Models.chunkPartial(PortableStorageInterfaceRenderer.getMiddleForState(blockState, lit))
             ).stealInstance(middle);
+            middle.flush();
         }
     }
 

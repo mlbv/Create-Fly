@@ -1,8 +1,8 @@
 package com.zurrtum.create.client.content.contraptions.render;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationContext;
-import com.zurrtum.create.client.flywheel.lib.transform.TransformStack;
+import dev.engine_room.flywheel.api.visualization.VisualizationContext;
+import dev.engine_room.flywheel.lib.transform.TransformStack;
 import com.zurrtum.create.content.contraptions.AbstractContraptionEntity;
 import com.zurrtum.create.content.contraptions.OrientedContraptionEntity;
 import net.minecraft.util.Mth;

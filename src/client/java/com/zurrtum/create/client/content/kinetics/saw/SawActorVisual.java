@@ -3,7 +3,7 @@ package com.zurrtum.create.client.content.kinetics.saw;
 import com.zurrtum.create.client.content.contraptions.render.ActorVisual;
 import com.zurrtum.create.client.content.kinetics.base.KineticBlockEntityVisual;
 import com.zurrtum.create.client.content.kinetics.base.RotatingInstance;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationContext;
+import dev.engine_room.flywheel.api.visualization.VisualizationContext;
 import com.zurrtum.create.client.foundation.virtualWorld.VirtualRenderWorld;
 import com.zurrtum.create.content.contraptions.behaviour.MovementContext;
 

@@ -22,9 +22,11 @@ repositories {
     addGroup("https://maven.squiddev.cc", "cc.tweaked")
     addGroup("https://maven.nucleoid.xyz/releases", "eu.pb4")
     addGroup("https://api.modrinth.com/maven", "maven.modrinth")
+    addGroup("https://repo.warfactory.co/releases", "dev.engine_room")
+    addGroup("https://maven.caffeinemc.net/releases", "net.caffeinemc")
 }
 
-version = "$project.mod_version-$project.mod_id"
+version = "${project.mod_version}-${project.mod_id}.cs.${project.fork_revision}"
 group = project.maven_group
 
 base {
@@ -106,8 +108,12 @@ dependencies {
     clientCompileOnly "cc.cassian.rrv:reliable-recipe-viewer-fabric:${rrv_version}"
     compileOnly "cc.tweaked:cc-tweaked-${project.cct_version}"
     clientCompileOnly "eu.pb4:trinkets:${project.trinkets_version}"
-    clientCompileOnly "maven.modrinth:sodium:${project.sodium_version}"
+    clientCompileOnly "net.caffeinemc:sodium-fabric-api:${project.sodium_version}"
+    if (project.hasProperty("sodium")) {
+        clientRuntimeOnly "net.caffeinemc:sodium-fabric:${project.sodium_version}"
+    }
     clientCompileOnly "maven.modrinth:iris:${project.iris_version}"
+    clientImplementation "dev.engine_room:crankshaft-fabric:${project.crankshaft_version}"
 }
 
 processResources {

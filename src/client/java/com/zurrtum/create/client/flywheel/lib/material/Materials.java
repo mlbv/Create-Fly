@@ -1,20 +1,28 @@
 package com.zurrtum.create.client.flywheel.lib.material;
 
-import com.zurrtum.create.client.flywheel.api.material.*;
+import dev.engine_room.flywheel.api.material.CardinalLightingMode;
+import dev.engine_room.flywheel.api.material.DepthTest;
+import dev.engine_room.flywheel.api.material.Material;
+import dev.engine_room.flywheel.api.material.Transparency;
+import dev.engine_room.flywheel.api.material.WriteMask;
+import dev.engine_room.flywheel.lib.material.CutoutShaders;
+import dev.engine_room.flywheel.lib.material.SimpleMaterial;
+import dev.engine_room.flywheel.lib.material.StandardMaterialShaders;
 import net.minecraft.client.renderer.feature.ItemFeatureRenderer;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 
 public final class Materials {
-    public static final Material SOLID_BLOCK = SimpleMaterial.builder().build();
+    // Port: blur selects CrankShaft's moving-block atlas sampler, the one vanilla's block-entity render types bind.
+    public static final Material SOLID_BLOCK = SimpleMaterial.builder().blur(true).build();
     public static final Material SOLID_UNSHADED_BLOCK = SimpleMaterial.builderOf(SOLID_BLOCK)
         .cardinalLightingMode(CardinalLightingMode.OFF).build();
 
-    public static final Material CUTOUT_BLOCK = SimpleMaterial.builder().cutout(CutoutShaders.HALF).build();
+    public static final Material CUTOUT_BLOCK = SimpleMaterial.builder().cutout(CutoutShaders.HALF).blur(true).build();
     public static final Material CUTOUT_UNSHADED_BLOCK = SimpleMaterial.builderOf(CUTOUT_BLOCK)
         .cardinalLightingMode(CardinalLightingMode.OFF).build();
 
     public static final Material TRANSLUCENT_BLOCK = SimpleMaterial.builder()
-        .transparency(Transparency.ORDER_INDEPENDENT).build();
+        .transparency(Transparency.ORDER_INDEPENDENT).blur(true).build();
     public static final Material TRANSLUCENT_UNSHADED_BLOCK = SimpleMaterial.builderOf(TRANSLUCENT_BLOCK)
         .cardinalLightingMode(CardinalLightingMode.OFF).build();
 

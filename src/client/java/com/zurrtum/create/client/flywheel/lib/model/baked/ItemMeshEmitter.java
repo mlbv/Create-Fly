@@ -2,10 +2,10 @@ package com.zurrtum.create.client.flywheel.lib.model.baked;
 
 import com.mojang.blaze3d.PrimitiveTopology;
 import com.mojang.blaze3d.vertex.*;
-import com.zurrtum.create.client.flywheel.api.model.Mesh;
-import com.zurrtum.create.client.flywheel.lib.memory.MemoryBlock;
-import com.zurrtum.create.client.flywheel.lib.model.SimpleQuadMesh;
-import com.zurrtum.create.client.flywheel.lib.vertex.FullVertexView;
+import dev.engine_room.flywheel.api.model.Mesh;
+import dev.engine_room.flywheel.lib.memory.MemoryBlock;
+import dev.engine_room.flywheel.lib.model.SimpleQuadMesh;
+import dev.engine_room.flywheel.lib.vertex.FullVertexView;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.rendertype.RenderType;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;

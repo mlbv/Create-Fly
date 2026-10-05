@@ -1,6 +1,6 @@
 package com.zurrtum.create.client.flywheel.lib.model.baked;
 
-import com.zurrtum.create.client.flywheel.lib.model.SimpleModel;
+import dev.engine_room.flywheel.lib.model.SimpleModel;
 import org.jetbrains.annotations.ApiStatus;
 
 @ApiStatus.Internal

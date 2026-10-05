@@ -4,15 +4,16 @@ import com.zurrtum.create.catnip.math.AngleHelper;
 import com.zurrtum.create.catnip.math.VecHelper;
 import com.zurrtum.create.client.AllPartialModels;
 import com.zurrtum.create.client.content.kinetics.base.SingleAxisRotatingVisual;
-import com.zurrtum.create.client.flywheel.api.visual.DynamicVisual;
-import com.zurrtum.create.client.flywheel.api.visual.TickableVisual;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationContext;
+import dev.engine_room.flywheel.api.visual.DynamicVisual;
+import dev.engine_room.flywheel.api.visual.TickableVisual;
+import dev.engine_room.flywheel.api.visualization.VisualizationContext;
 import com.zurrtum.create.client.flywheel.lib.instance.InstanceTypes;
 import com.zurrtum.create.client.flywheel.lib.instance.TransformedInstance;
 import com.zurrtum.create.client.flywheel.lib.model.Models;
-import com.zurrtum.create.client.flywheel.lib.visual.SimpleDynamicVisual;
-import com.zurrtum.create.client.flywheel.lib.visual.SimpleTickableVisual;
-import com.zurrtum.create.client.flywheel.lib.visual.util.SmartRecycler;
+import dev.engine_room.flywheel.lib.instance.FlatLit;
+import dev.engine_room.flywheel.lib.visual.SimpleDynamicVisual;
+import dev.engine_room.flywheel.lib.visual.SimpleTickableVisual;
+import dev.engine_room.flywheel.lib.visual.util.SmartRecycler;
 import com.zurrtum.create.content.kinetics.chainConveyor.ChainConveyorBehaviour;
 import com.zurrtum.create.content.kinetics.chainConveyor.ChainConveyorBlockEntity;
 import com.zurrtum.create.content.kinetics.chainConveyor.ChainConveyorPackage;
@@ -206,7 +207,7 @@ public class ChainConveyorVisual extends SingleAxisRotatingVisual<ChainConveyorB
 
             TransformedInstance guard = guardInstancer.createInstance();
             guard.translate(getVisualPosition()).center().rotateYDegrees((float) yaw).uncenter()
-                .light(rotatingModel.light).setChanged();
+                .light(rotatingModel.light()).setChanged();
 
             guards.add(guard);
         }
@@ -215,7 +216,7 @@ public class ChainConveyorVisual extends SingleAxisRotatingVisual<ChainConveyorB
     @Override
     public void updateLight(float partialTick) {
         super.updateLight(partialTick);
-        relight(guards);
+        relight(guards.toArray(FlatLit[]::new));
     }
 
     @Override

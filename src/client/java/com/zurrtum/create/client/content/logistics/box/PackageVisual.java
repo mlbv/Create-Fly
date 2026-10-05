@@ -2,13 +2,13 @@ package com.zurrtum.create.client.content.logistics.box;
 
 import com.zurrtum.create.AllItems;
 import com.zurrtum.create.client.AllPartialModels;
-import com.zurrtum.create.client.flywheel.api.visualization.VisualizationContext;
+import dev.engine_room.flywheel.api.visualization.VisualizationContext;
 import com.zurrtum.create.client.flywheel.lib.instance.InstanceTypes;
 import com.zurrtum.create.client.flywheel.lib.instance.TransformedInstance;
 import com.zurrtum.create.client.flywheel.lib.model.Models;
 import com.zurrtum.create.client.flywheel.lib.model.baked.PartialModel;
-import com.zurrtum.create.client.flywheel.lib.visual.AbstractEntityVisual;
-import com.zurrtum.create.client.flywheel.lib.visual.SimpleDynamicVisual;
+import dev.engine_room.flywheel.lib.visual.AbstractEntityVisual;
+import dev.engine_room.flywheel.lib.visual.SimpleDynamicVisual;
 import com.zurrtum.create.content.logistics.box.PackageEntity;
 import com.zurrtum.create.content.logistics.box.PackageItem;
 import net.minecraft.core.registries.BuiltInRegistries;
